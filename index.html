@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsChat Web</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="header fill-available">
+      <h1>WhatsChat Web</h1>
+    </div>
+
+    <div class="container">
+      <div class="phone-container">
+        <p class="phone-label">Phone number (with country code)</p>
+        <input type="tel" class="phone fill-available animate__animated" id="phone" placeholder="+001-(XXX)XXXXXXX" />
+      </div>
+
+      <div class="msg-container">
+        <p class="msg-label">Message (optional)</p>
+        <textarea
+          rows="3"
+          class="message fill-available animate__animated"
+          id="message"
+          placeholder="Hey there! I am using WhatsApp."
+        ></textarea>
+      </div>
+
+      <div class="btn-container">
+        <button type="button" class="btn btn-clear" id="btn-clear">Clear</button>
+        <button type="button" class="btn btn-chat" id="btn-chat">Chat</button>
+      </div>
+    </div>
+
+    <span class="theme" id="theme" title="Switch theme">
+      <i class="fas fa-sun"></i>
+    </span>
+
+    <span class="github" id="github" title="Browse code">
+      <i class="fab fa-github"></i>
+    </span>
+
+    <!-- Script -->
+    <script src="./script.js"></script>
+  </body>
+</html>

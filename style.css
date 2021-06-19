@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+:root {
+  --text-color: #212121;
+  --label-color: #757575;
+  --placeholder-color: #d9d9d9;
+  --button-color: #20c659;
+  --button-color-alt: rgba(32, 198, 89, 0.1);
+  --border-color: #c1d7d5;
+  --error: #ff3333;
+  --page-background: #ffffff;
+  --page-background-alt: rgba(255, 255, 255, 0.75);
+  --container-background: #fcfcfc;
+  --box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] {
+  --text-color: #d4d6d8;
+  --label-color: #9fa3a7;
+  --placeholder-color: #15252d;
+  --button-color: #00af9c;
+  --button-color-alt: rgba(0, 175, 156, 0.1);
+  --border-color: #222d36;
+  --error: #ff4b4b;
+  --page-background: #0d171c;
+  --page-background-alt: rgba(13, 23, 28, 0.75);
+  --container-background: #101d24;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--on-background);
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: var(--page-background);
+
+  /* Hero Patterns */
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2312bc77' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  margin: 0;
+}
+
+.header {
+  padding: 1rem;
+  background-color: var(--page-background-alt);
+  text-align: center;
+}
+
+.container {
+  background-color: var(--container-background);
+  width: 50%;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.phone-container,
+.msg-container,
+.btn-container {
+  padding: 1.5em 1.5em 0 1.5em;
+}
+
+.btn-container {
+  padding: 1.5em;
+  text-align: end;
+}
+
+h1 {
+  color: var(--button-color);
+  font-size: 3rem;
+  margin: 0;
+}
+
+input,
+textarea {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: var(--text-color);
+  background-color: var(--page-background);
+  font-size: 1.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  transition: border 0.15s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid var(--text-color);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--placeholder-color);
+}
+
+.phone-label,
+.msg-label {
+  font-size: 1.25rem;
+  color: var(--label-color);
+  padding-bottom: 0.5em;
+}
+
+.message {
+  resize: vertical;
+}
+
+.btn {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  min-width: 5rem;
+  transition: 0.15s;
+}
+
+.btn:hover {
+  filter: brightness(135%);
+}
+
+.btn-clear {
+  color: var(--button-color);
+  background-color: transparent;
+  border: 1px solid var(--button-color);
+}
+
+.btn-clear:hover {
+  background-color: var(--button-color-alt);
+}
+
+.btn-chat {
+  color: var(--container-background);
+  background-color: var(--button-color);
+  border: 1px solid transparent;
+  margin-left: 0.5rem;
+}
+
+.fill-available {
+  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: fill-available;
+}
+
+.theme {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.github {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  input,
+  textarea {
+    font-size: 1.25rem;
+  }
+}
