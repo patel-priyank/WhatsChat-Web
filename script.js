@@ -24,11 +24,6 @@ function resetError() {
   phone.style.borderColor = '';
 }
 
-function focusPhone() {
-  phone.selectionStart = phone.selectionEnd = phone.value.length;
-  phone.focus();
-}
-
 function lightMode() {
   theme.children[0].classList.replace('fa-moon', 'fa-sun');
   localStorage.setItem('theme', 'light');
@@ -82,7 +77,7 @@ function chat() {
   }
 }
 
-function switchTheme(isPageLoad) {
+function setTheme(isPageLoad) {
   const currentTheme = localStorage.getItem('theme');
 
   if (currentTheme) {
@@ -112,12 +107,10 @@ phone.addEventListener('animationend', () => {
   if (phone.classList.contains(errorAnimation)) {
     phone.classList.remove(errorAnimation);
     resetError();
-    focusPhone();
   }
 
   if (phone.classList.contains(clearAnimation)) {
     phone.classList.remove(clearAnimation);
-    focusPhone();
   }
 });
 
@@ -138,8 +131,7 @@ btnChat.addEventListener('click', chat);
 github.addEventListener('click', browseCode);
 
 theme.addEventListener('click', () => {
-  switchTheme(PAGE_LOAD_NO);
+  setTheme(PAGE_LOAD_NO);
 });
 
-switchTheme(PAGE_LOAD_YES);
-focusPhone();
+setTheme(PAGE_LOAD_YES);
