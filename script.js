@@ -127,6 +127,12 @@ message.addEventListener('animationend', () => {
   }
 });
 
+phone.addEventListener('keydown', (event) => {
+  if (event.code === 'Enter') {
+    btnChat.click();
+  }
+});
+
 btnClear.addEventListener('click', clearForm);
 btnChat.addEventListener('click', chat);
 github.addEventListener('click', browseCode);
