@@ -10,28 +10,19 @@ const PAGE_LOAD_NO = false;
 
 const validPhoneNumberCharacters = '()+-., 0123456789';
 
+// Add error colors
 function addError() {
   phone.style.color = 'var(--error)';
   phone.style.borderColor = 'var(--error)';
 }
 
+// Remove error colors
 function resetError() {
   phone.style.color = '';
   phone.style.borderColor = '';
 }
 
-function lightMode() {
-  theme.children[0].classList.replace('fa-moon', 'fa-sun');
-  localStorage.setItem('theme', 'light');
-  document.documentElement.setAttribute('data-theme', 'light');
-}
-
-function darkMode() {
-  theme.children[0].classList.replace('fa-sun', 'fa-moon');
-  localStorage.setItem('theme', 'dark');
-  document.documentElement.setAttribute('data-theme', 'dark');
-}
-
+// Clear form helper function
 function clearForm() {
   resetError();
 
@@ -39,6 +30,7 @@ function clearForm() {
   message.value = '';
 }
 
+// Open WhatsApp helper function
 function chat() {
   let isValidPhone = true;
 
@@ -72,6 +64,39 @@ function chat() {
   }
 }
 
+// Go to GitHub page
+function browseCode() {
+  window.open('https://github.com/patel-priyank/WhatsChat-Web');
+}
+
+// Enter button functionality
+phone.addEventListener('keydown', (event) => {
+  if (event.code === 'Enter') {
+    btnChat.click();
+  }
+});
+
+btnClear.addEventListener('click', clearForm);
+btnChat.addEventListener('click', chat);
+github.addEventListener('click', browseCode);
+
+//#region Theming
+
+// Set Light mode
+function lightMode() {
+  theme.children[0].classList.replace('fa-moon', 'fa-sun');
+  localStorage.setItem('theme', 'light');
+  document.documentElement.setAttribute('data-theme', 'light');
+}
+
+// Set Dark mode
+function darkMode() {
+  theme.children[0].classList.replace('fa-sun', 'fa-moon');
+  localStorage.setItem('theme', 'dark');
+  document.documentElement.setAttribute('data-theme', 'dark');
+}
+
+// Set Theme helper function
 function setTheme(isPageLoad) {
   const currentTheme = localStorage.getItem('theme');
 
@@ -94,22 +119,12 @@ function setTheme(isPageLoad) {
   }
 }
 
-function browseCode() {
-  window.open('https://github.com/patel-priyank/WhatsChat-Web');
-}
-
-phone.addEventListener('keydown', (event) => {
-  if (event.code === 'Enter') {
-    btnChat.click();
-  }
-});
-
-btnClear.addEventListener('click', clearForm);
-btnChat.addEventListener('click', chat);
-github.addEventListener('click', browseCode);
-
+// Set theme on click on button
 theme.addEventListener('click', () => {
   setTheme(PAGE_LOAD_NO);
 });
 
+// Set theme on page load
 setTheme(PAGE_LOAD_YES);
+
+//#endregion
