@@ -5,16 +5,12 @@ const btnChat = document.getElementById('btn-chat');
 const theme = document.getElementById('theme');
 const github = document.getElementById('github');
 
-const errorAnimation = 'animate__shakeX';
-const clearAnimation = 'animate__flipInX';
-
 const PAGE_LOAD_YES = true;
 const PAGE_LOAD_NO = false;
 
 const validPhoneNumberCharacters = '()+-., 0123456789';
 
 function addError() {
-  phone.classList.add(errorAnimation);
   phone.style.color = 'var(--error)';
   phone.style.borderColor = 'var(--error)';
 }
@@ -41,9 +37,6 @@ function clearForm() {
 
   phone.value = '';
   message.value = '';
-
-  phone.classList.add(clearAnimation);
-  message.classList.add(clearAnimation);
 }
 
 function chat() {
@@ -71,9 +64,11 @@ function chat() {
       resetError();
     } else {
       addError();
+      setTimeout(() => resetError(), 2000);
     }
   } else {
     addError();
+    setTimeout(() => resetError(), 2000);
   }
 }
 
@@ -102,23 +97,6 @@ function setTheme(isPageLoad) {
 function browseCode() {
   window.open('https://github.com/patel-priyank/WhatsChat-Web');
 }
-
-phone.addEventListener('animationend', () => {
-  if (phone.classList.contains(errorAnimation)) {
-    phone.classList.remove(errorAnimation);
-    resetError();
-  }
-
-  if (phone.classList.contains(clearAnimation)) {
-    phone.classList.remove(clearAnimation);
-  }
-});
-
-message.addEventListener('animationend', () => {
-  if (message.classList.contains(clearAnimation)) {
-    message.classList.remove(clearAnimation);
-  }
-});
 
 phone.addEventListener('keydown', (event) => {
   if (event.code === 'Enter') {
